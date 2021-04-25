@@ -1,0 +1,40 @@
+DROP SPACE IF EXISTS ddl_space1;
+DROP SPACE IF EXISTS ddl_space2;
+DROP SPACE IF EXISTS ddl_space3;
+DROP SPACE IF EXISTS ddl_space4;
+
+create space ddl_space1(partition_num=3, replica_factor=1, charset=utf8,collate=utf8_bin);
+create space ddl_space2(partition_num=30, replica_factor=1, charset=utf8,collate=utf8_bin);
+create space ddl_space3(partition_num=30, replica_factor=1, charset=utf8,collate=utf8_bin);
+create space ddl_space4(partition_num=30, replica_factor=1, charset=utf8,collate=utf8_bin);
+
+
+drop user if exists user1;
+drop user if exists user2;
+drop user if exists user3;
+drop space if exists user_space1;
+drop space if exists user_space2;
+drop space if exists user_space3;
+
+CREATE USER user1 WITH PASSWORD "nebula";
+CREATE USER user2 WITH PASSWORD "nebula";
+CREATE USER user3 WITH PASSWORD "nebula";
+create space user_space1;
+create space user_space2;
+create space user_space3;
+
+
+DROP SPACE IF EXISTS storage_vertex_space1;
+create space storage_vertex_space1(partition_num=3, replica_factor=1, charset=utf8,collate=utf8_bin);
+
+DROP SPACE IF EXISTS storage_edge_space1;
+create space storage_edge_space1(partition_num=3, replica_factor=1, charset=utf8,collate=utf8_bin);
+
+DROP SPACE IF EXISTS storage_modify_space1;
+create space storage_modify_space1(partition_num=3, replica_factor=1, charset=utf8,collate=utf8_bin);
+
+DROP SPACE IF EXISTS storage_tag_index_space1;
+create space storage_tag_index_space1(partition_num=3, replica_factor=1, charset=utf8,collate=utf8_bin);
+
+DROP SPACE IF EXISTS storage_edge_index_space1;
+create space storage_edge_index_space1(partition_num=3, replica_factor=1, charset=utf8,collate=utf8_bin);

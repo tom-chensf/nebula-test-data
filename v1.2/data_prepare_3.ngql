@@ -1,0 +1,15 @@
+use storage_tag_index_space1;
+create tag index tag1_index1 on tag1(col1);
+create tag index tag1_index2 on tag1(col2);
+create tag index tag1_index3 on tag1(col3);
+create tag index tag2_index1 on tag2(col1,col2);
+create tag index tag2_index2 on tag2(col1,col3);
+create tag index tag2_index3 on tag2(col1,col2,col3);
+
+use storage_edge_index_space1;
+create edge index edge1_index1 on edge1(col1);
+create edge index edge1_index2 on edge1(col2);
+create edge index edge1_index3 on edge1(col3);
+create edge index edge2_index1 on edge2(col1,col2);
+create edge index edge2_index2 on edge2(col1,col3);
+create edge index edge2_index3 on edge2(col1,col2,col3); 

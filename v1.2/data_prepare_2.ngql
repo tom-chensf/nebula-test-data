@@ -1,0 +1,46 @@
+use  ddl_tag_space1;
+create tag ddl_tag1(col1 bool , col2 int, col3 double, col4 string) TTL_DURATION = 0,TTL_COL = "col2" ;
+create tag ddl_tag2(col1 timestamp);
+
+create tag ddl_tag3(col1 bool default true , col2 int default 64, col3 double default 7.2, col4 string default "111")  TTL_DURATION = 1000000,TTL_COL = "col2" ;
+create tag ddl_tag4(col1 timestamp default "2000-10-10 10:00:00");
+
+use  ddl_edge_space1;
+create edge ddl_edge1(col1 bool, col2 int, col3 double,col4 string) TTL_DURATION = 0,TTL_COL = "col2" ;
+create edge ddl_edge2(col1  timestamp);
+
+create edge ddl_edge3(col1 bool default true , col2 int default 64, col3 double default 7.2,col4  string default "111") TTL_DURATION = 100000,TTL_COL = "col2" ;
+create edge ddl_edge4(col1  timestamp default "2000-10-10 10:00:00");
+
+grant DBA ON user_space1 TO user1;
+grant USER ON user_space2 TO user2;
+grant GUEST ON user_space3 TO user3;
+
+use storage_vertex_space1;
+create tag storage_tag1(col1 bool , col2 int, col3 double,col4 string);
+create tag storage_tag2(col1 timestamp);
+create tag storage_tag3(col1 bool default true , col2 int default 64, col3 double default 7.2,col4 string default "111") ;
+create tag storage_tag4(col1 timestamp default 0);
+
+use storage_edge_space1;
+create edge storage_edge1(col1 bool , col2 int, col3 double,col4 string);
+create edge storage_edge2(col1 timestamp) ;
+create edge storage_edge3(col1 bool default true , col2 int default 64, col3 double default 7.2,col4 string default "111") ;
+create edge storage_edge4(col1 timestamp default 0);
+
+use storage_modify_space1;
+create tag tag1(col1 int,col2 double,col3 string);
+create tag tag2(col1 int,col2 double,col3 string);
+create tag tag3(col1 int,col2 double,col3 string);
+create edge edge1(col1 int,col2 double,col3 string);
+create edge edge2(col1 int,col2 double,col3 string);
+create edge edge3(col1 int,col2 double,col3 string);
+
+use storage_tag_index_space1;
+create tag tag1(col1 int,col2 double,col3 string);
+create tag tag2(col1 int,col2 double,col3 string);
+
+
+use storage_edge_index_space1;
+create edge edge1(col1 int,col2 double,col3 string);
+create edge edge2(col1 int,col2 double,col3 string);

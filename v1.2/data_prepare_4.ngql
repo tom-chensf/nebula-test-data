@@ -1,0 +1,74 @@
+use storage_vertex_space1;
+insert vertex storage_tag1(col1,col2,col3,col4) Values 1:(true,9223372036854775807,99999999.111111,"");
+insert vertex storage_tag1(col1,col2,col3,col4) Values 2:(false,-9223372036854775808,-99999999.111111,"aaa");
+insert vertex storage_tag1(col1,col2,col3,col4) Values 3:(true,100,1.1,"xsaxasx");
+
+insert vertex storage_tag2(col1) Values 1:(0);
+insert vertex storage_tag2(col1) Values 2:(100);
+insert vertex storage_tag2(col1) Values 3:("2010-10-10 00:09:09");
+
+insert vertex storage_tag3() Values 1:();
+insert vertex storage_tag3(col1,col2) Values 2:(true,11);
+insert vertex storage_tag3(col2) Values 4:(127);
+insert vertex storage_tag3(col2) Values 5:(-128);
+insert vertex storage_tag3(col2) Values 6:(32767);
+insert vertex storage_tag3(col2) Values 7:(-32768);
+insert vertex storage_tag3(col2) Values 8:(2147483647);
+insert vertex storage_tag3(col2) Values 9:(-2147483648);
+
+insert vertex storage_tag4() Values 1:();
+insert vertex storage_tag4() Values 2:();
+insert vertex storage_tag4() Values 3:(1000);
+
+use storage_edge_space1;
+insert edge storage_edge1(col1,col2,col3,col4) Values 1->2:(true,9223372036854775807,99999999.111111,"");
+insert edge storage_edge1(col1,col2,col3,col4) Values 1->3:(false,-9223372036854775808,-99999999.111111,"aaa");
+insert edge storage_edge1(col1,col2,col3,col4) Values 1->4:(true,100,1.1,"xsaxasx");
+insert edge storage_edge2(col1) Values 1->2:(0);
+insert edge storage_edge2(col1) Values 1->3:(20);
+insert edge storage_edge2(col1) Values 1->4:("2001-01-01 08:20:00");
+insert edge storage_edge3() Values 1->2:();
+insert edge storage_edge3(col1,col2,col3,col4) Values 1->3:(true,9223372036854775807,99999999.111111,"");
+insert edge storage_edge3(col1,col2,col3,col4) Values 1->4:(false,-9223372036854775808,-99999999.111111,"aaa");
+insert edge storage_edge4(col1) Values 1->2:(10000);
+insert edge storage_edge4() Values 1->2:();
+
+
+use storage_modify_space1;
+insert vertex tag1(col1,col2,col3) values 1:(1,1.1,"aaa");
+insert vertex tag1(col1,col2,col3) values 2:(2,2.2,"bbb");
+insert vertex tag2(col1,col2,col3) values 1:(1,1.1,"aaa");
+insert vertex tag2(col1,col2,col3) values 2:(2,2.2,"bbb");
+insert vertex tag3(col1,col2,col3) values 1:(1,1.1,"aaa");
+insert vertex tag3(col1,col2,col3) values 2:(2,2.2,"bbb");
+insert edge edge1(col1,col2,col3)  Values 1->2:(1,1.1,"aaa");
+insert edge edge1(col1,col2,col3)  Values 1->3:(2,2.2,"bbb");
+insert edge edge2(col1,col2,col3)  Values 1->2:(1,1.1,"aaa");
+insert edge edge2(col1,col2,col3)  Values 1->3:(2,2.2,"bbb");
+insert edge edge3(col1,col2,col3)  Values 1->2:(1,1.1,"aaa");
+insert edge edge3(col1,col2,col3)  Values 1->3:(2,2.2,"bbb");
+insert edge edge3(col1,col2,col3)  Values 1->3:(2,2.2,"bbb");
+insert edge edge3(col1,col2,col3)  Values 1->3:(2,2.2,"bbb");
+
+alter tag tag1 add (col4 timestamp);
+alter tag tag2 drop (col3);
+alter tag tag3 change (col1 double);
+alter edge edge1 add (col4 timestamp);
+alter edge edge2 drop (col3);
+alter edge edge3 change (col1 double);
+
+
+use storage_tag_index_space1;
+insert vertex tag1(col1,col2,col3)  Values 1:(1,1.1,"aaa");
+insert vertex tag1(col1,col2,col3)  Values 2:(2,2.2,"bbb");
+insert vertex tag2(col1,col2,col3)  Values 1:(1,1.1,"aaa");
+insert vertex tag2(col1,col2,col3)  Values 2:(2,2.2,"bbb");
+
+use storage_edge_index_space1;
+
+insert edge edge1(col1,col2,col3)  Values 1->2:(1,1.1,"aaa");
+insert edge edge1(col1,col2,col3)  Values 1->3:(2,2.2,"bbb");
+insert edge edge2(col1,col2,col3)  Values 1->2:(1,1.1,"aaa");
+insert edge edge2(col1,col2,col3)  Values 1->3:(2,2.2,"bbb");
+insert edge edge2(col1,col2,col3)  Values 1->2@1:(1,1.1,"aaa");
+insert edge edge2(col1,col2,col3)  Values 1->3@1:(2,2.2,"bbb");
